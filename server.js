@@ -4,9 +4,15 @@ const bodyparser = require('body-parser');
 const socketio = require('socket.io');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-
 const path = require('path');
 const app = express();
+require('dotenv').config();
+
+mongoose.connect(`${process.env.MONGO_PASS}`).then(function () {
+  console.log('connected to DB');
+}).catch(function (err) {
+  console.error(err);
+})
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.use('/:path/:path', express.static(path.join(__dirname, '/public')));

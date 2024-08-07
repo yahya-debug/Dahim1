@@ -1,0 +1,110 @@
+@media only screen and (max-width: 1290px) {
+  .acc_shc{
+    width: 25%;
+  }
+}
+@media only screen and (max-width: 1180px) {
+  .acc_shc{
+    display: none;
+  }
+  .cpost, .home .post{
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 920px) {
+  .ProfInf .profpic{
+    width: 100%;
+  }
+  .cpost, .home .post{
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 790px) {
+  .ProfInf{
+    width: 100%;
+  }
+  .ProfInf .profpic{
+    width: 400px;
+  }
+  .profile .profbody .postsinprof .post{
+    width: 100%;
+  }
+  .home .navigation nav{
+    width: 250px;
+  }
+}
+@media only screen and (max-width: 667px) {
+  header h1{
+    font-size: 18px;
+    height: 31.1px;
+  }
+  header h1 svg{
+    width: 80px;
+    height: 31.1px;
+  }
+  header nav button{
+    width: 30px;
+    height: 30px;
+  }
+  header nav button svg, header nav button a{
+    width: 20px;
+    height: 20px!important;
+  }
+  .home .postsec{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-align-items: center;
+    align-items: center;
+  }
+  .home .postsec .stories{
+    width: 510px;
+  }
+  .cpost, .home .post{
+    width: 510px;
+  }
+  .home .navigation{
+    display: none;
+  }
+  .chatList{
+    width: 100%;
+  }
+  .chat{
+    display: none;
+  }
+  .profile .profbody{
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-align-items: center;
+    align-items: center;
+  }
+  .profile .profbody .postsinprof .post{
+    width: 510px;
+  }
+  .profile .profbody .postsinprof{
+    -ms-align-items: center;
+    align-items: center;
+    margin-top: 7px;
+  }
+  .profile .Followers{
+    width: 510px;
+  }
+}
+@media only screen and (max-width: 530px) {
+
+}
+@media only screen and (max-width: 450px) {
+  .h_nav{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    z-index: 5;
+    padding: 5px;
+  }
+}

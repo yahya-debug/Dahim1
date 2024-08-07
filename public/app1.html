@@ -6,8 +6,6 @@
     <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="/styles/app.css">
-    <link rel="stylesheet" href="/styles/responsive.css">
-    <script src="./sw.js" charset="utf-8"></script>
     <title>Dahim</title>
   </head>
   <body>
@@ -28,7 +26,8 @@
         <image id="image0_1101_2" width="80" height="82" xlink:href="data:image/png;base64,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"/>
         </defs>
       </svg>
-    </h1></a>
+      <span> | Profile</span>
+      </h1></a>
       <div class="h_nav">
         <nav>
           <button type="button" name="messages"><a href="/Chat" class="innerLink">
@@ -80,10 +79,35 @@
         </button>
       </div>
     </header>
-    <section class="body">
-
+    <section class="body profile">
+      <div class="ProfInf">
+        <div class="profpic">
+          <img src="./sources/noImagde_user.jpg" alt="">
+        </div>
+        <div class="n_b">
+          <h3>Yahya</h3>
+          <p class="bio">Winter is coming</p>
+        </div>
+        <div class="buttons">
+          <button type="button" name="profile settings">
+            <svg width="20" height="20" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1126_7)">
+            <path d="M22 24.75C23.5188 24.75 24.75 23.5188 24.75 22C24.75 20.4812 23.5188 19.25 22 19.25C20.4812 19.25 19.25 20.4812 19.25 22C19.25 23.5188 20.4812 24.75 22 24.75Z" fill="black"/>
+            <path d="M11 24.75C12.5188 24.75 13.75 23.5188 13.75 22C13.75 20.4812 12.5188 19.25 11 19.25C9.48122 19.25 8.25 20.4812 8.25 22C8.25 23.5188 9.48122 24.75 11 24.75Z" fill="black"/>
+            <path d="M33 24.75C34.5188 24.75 35.75 23.5188 35.75 22C35.75 20.4812 34.5188 19.25 33 19.25C31.4812 19.25 30.25 20.4812 30.25 22C30.25 23.5188 31.4812 24.75 33 24.75Z" fill="black"/>
+            </g>
+            </svg>
+          </button>
+          <button type="button" name="Follow">Follow</button>
+        </div>
+      </div>
+      <aside class="Followers">
+        <h3>Followers</h3>
+        <div class="follist">
+          <span class="msg_n">لقد كان وحيدا</span>
+        </div>
+      </aside>
     </section>
-    <script src="./styles/styles.js" charset="utf-8"></script>
     <script src="./app.js" charset="utf-8"></script>
   </body>
 </html>
