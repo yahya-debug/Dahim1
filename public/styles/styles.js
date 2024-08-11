@@ -1,6 +1,11 @@
 window.addEventListener('load', responsive);
 window.addEventListener('resize', responsive);
 
+function stylesChange(appearance) {
+  var root = document.querySelector(':root');
+  var hh = document.querySelector('header').offsetHeight;
+  root.style.setProperty('--header-h', hh + 'px');
+}
 function responsive() {
   var body = document.querySelector('.body');
   var header = document.querySelector('header');
@@ -53,4 +58,5 @@ function responsive() {
       document.querySelector('.h_nav').appendChild(document.querySelector('header > button'));
     }
   }
+  stylesChange(0)
 }

@@ -151,7 +151,11 @@ a h1{
   display: block;
   height: 25px;
 }
-header .h_nav nav .searchBox{
+.sopen{
+  position: relative;
+  width: 220px;
+}
+.h_nav nav.sopen .searchBox{
   position: absolute;
   top: 0;
   left: 0;

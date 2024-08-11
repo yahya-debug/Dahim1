@@ -12,9 +12,6 @@
   }
 }
 @media only screen and (max-width: 920px) {
-  .ProfInf .profpic{
-    width: 100%;
-  }
   .cpost, .home .post{
     width: 100%;
   }
@@ -95,7 +92,11 @@
   }
 }
 @media only screen and (max-width: 530px) {
-
+  .cpost, .post, .home .postsec .stories, .ProfInf, .ProfInf .profpic, .Followers{
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
 }
 @media only screen and (max-width: 450px) {
   .h_nav{
@@ -106,5 +107,15 @@
     justify-content: center;
     z-index: 5;
     padding: 5px;
+  }
+  .h_nav .sopen{
+    position: unset;
+  }
+  .h_nav .searchBox{
+    position: fixed!important;
+    width: 100%!important;
+    height: 100%!important;
+    border-radius: 0!important;
+    padding: 10px!important;
   }
 }

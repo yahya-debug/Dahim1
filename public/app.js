@@ -356,7 +356,7 @@ function openProf() {
 }
 function openSearch() {
   var parent = document.querySelector('.h_nav nav');
-  parent.style.width = '220px';
+  parent.classList.add('sopen');
   var newDiv = document.createElement('div')
   newDiv.classList.add('searchBox');
   newDiv.innerHTML = `<div class="searchBox">
@@ -373,10 +373,4 @@ function search() {
 }
 function post() {
 
-}
-
-function stylesChange(appearance) {
-  var root = document.querySelector(':root');
-  var hh = document.querySelector('header').offsetHeight;
-  root.style.setProperty('--header-h', hh + 'px');
 }
