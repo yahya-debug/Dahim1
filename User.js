@@ -53,6 +53,10 @@ router.post('/Login', function (req, res) {
         }
         if (result && !res.headersSent) {
           res.send({ tok: users[u].token, })
+          console.log(users[u].devices.includes(dev));
+          if (!users[u].devices.includes(dev)) {
+            User.findOneAndUpdate({ id: users[u].id }, { $addToSet: { devices: dev, }, }, function () {})
+          }
         }
       })
     }
