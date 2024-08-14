@@ -1,3 +1,4 @@
+var body = document.querySelector('.body')
 // open the requested page
 switch (location.pathname) {
   case '/':
@@ -9,9 +10,29 @@ switch (location.pathname) {
   case '/myProfile':
     openProf()
     break;
+  case '/Notifications':
+    openNoti();
+    break;
 }
+// open the requested page when the link changes
+window.addEventListener('popstate', function (event) {
+  switch (location.pathname) {
+    case '/':
+      openHome();
+      break;
+    case '/Chat':
+      openChat();
+      break;
+    case '/myProfile':
+      openProf()
+      break;
+    case '/Notifications':
+      openNoti();
+      break;
+  }
+})
 // booleans
-var chaton, homeon, profon;
+var chaton, homeon, profon, notion;
 // events
 function run() {
   // fetch all
@@ -22,6 +43,7 @@ function run() {
   var hbtn = document.querySelector('.h_nav nav button[name="home"]');
   var pbtn = document.querySelectorAll('a[href="/myProfile"]');
   var sbtn = document.querySelector('.h_nav nav button[name="search"]');
+  var sets = document.querySelector('.h_nav button[name="settings"]');
   var sp = document.querySelector('.cpost button[name="post"]');
   var textareas = document.querySelectorAll('textarea');
   var sinp = document.querySelectorAll('input[type="search"]');
@@ -75,9 +97,7 @@ function openChat() {
     return;
   }
   changeTitle('| Messages')
-  chaton = true;
   console.log(`we're in chats now`);
-  var body = document.querySelector('.body');
   body.className = 'body chatSite'
   body.innerHTML = `<div class="chatList">
     <div class="m_search">
@@ -153,8 +173,10 @@ function openChat() {
   </article>`;
 
   history.pushState('', {}, '/Chat');
+  chaton = true;
   homeon = false;
   profon = false;
+  notion = false;
   run();
 }
 function openHome() {
@@ -163,7 +185,6 @@ function openHome() {
     return;
   }
   changeTitle('');
-  var body = document.querySelector('.body');
   body.className = 'body home';
   body.innerHTML = `<div class="navigation">
       <nav>
@@ -231,6 +252,7 @@ function openHome() {
   chaton = false;
   homeon = true;
   profon = false;
+  notion = false;
   run();
   responsive();
 }
@@ -240,22 +262,7 @@ function openProf() {
   }
   console.log(`we're in profile`);
   changeTitle('| Profile');
-  var body = document.querySelector('.body'), phi = '', pbi = '';
-  // if (window.innerWidth < 790) {
-  //   pbi = `<aside class="Followers">
-  //     <h3>Followers</h3>
-  //     <div class="follist">
-  //       <span class="msg_n">لقد كان وحيدا</span>
-  //     </div>
-  //   </aside>`
-  // } else {
-  //   phi = `<aside class="Followers">
-  //     <h3>Followers</h3>
-  //     <div class="follist">
-  //       <span class="msg_n">لقد كان وحيدا</span>
-  //     </div>
-  //   </aside>`
-  // }
+  var phi = '', pbi = '';
   body.className = 'body profile';
   body.innerHTML = `<div class="profhead">
     <div class="ProfInf">
@@ -351,21 +358,65 @@ function openProf() {
   homeon = false;
   profon = true;
   chaton = false;
+  notion = false;
   run();
   responsive()
+}
+function openNoti() {
+  if (notion) {
+    return;
+  }
+  notion = true;
+  changeTitle('| Notifications')
+  body.className = 'body notifications';
+  body.innerHTML = `<div class="filter">
+    <button type="button" name="All">All</button>
+    <button type="button" name="Unread">Unread</button>
+    <button type="button" name="Read">Read</button>
+    <select name="Order">
+      <option value="Newest">Newest</option>
+      <option value="Oldest">Oldest</option>
+    </select>
+  </div>
+  <a href="/" class="notification">
+    <button type="button">
+      <img src="./sources/noImagde_user.jpg" class="simg">
+      <div class="info">
+        <h4>yahya started following you</h4>
+        <i class="time">1h ago</i>
+      </div>
+    </button>
+  </a>`;
+  history.pushState('', {}, '/Notifications')
+  chaton = false;
+  homeon = false;
+  profon = false;
+  notion = true;
+  run();
 }
 function openSearch() {
   var parent = document.querySelector('.h_nav nav');
   parent.classList.add('sopen');
   var newDiv = document.createElement('div')
   newDiv.classList.add('searchBox');
-  newDiv.innerHTML = `<div class="searchBox">
+  newDiv.innerHTML = `
+    <div class='srchinp'>
     <input type="search" name="search" placeholder="Search">
+    <button type="button" name="exit search">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM15.7 14.3C16.1 14.7 16.1 15.3 15.7 15.7C15.3 16.1 14.7 16.1 14.3 15.7L12 13.4L9.7 15.7C9.3 16.1 8.7 16.1 8.3 15.7C7.9 15.3 7.9 14.7 8.3 14.3L10.6 12L8.3 9.7C7.9 9.3 7.9 8.7 8.3 8.3C8.7 7.9 9.3 7.9 9.7 8.3L12 10.6L14.3 8.3C14.7 7.9 15.3 7.9 15.7 8.3C16.1 8.7 16.1 9.3 15.7 9.7L13.4 12L15.7 14.3Z" fill="black"/>
+    </svg>
+    </button>
+    </div>
     <div class="srchRes">
       <p>Nothing</p>
-    </div>
-  </div>`;
+    </div>`;
   parent.appendChild(newDiv);
+  function close() {
+    newDiv.remove();
+    parent.classList.remove('sopen');
+  }
+  newDiv.querySelector('button[name="exit search"]').addEventListener('click', close)
   run();
 }
 function search() {

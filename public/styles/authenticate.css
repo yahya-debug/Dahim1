@@ -1,0 +1,79 @@
+*{
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+body{
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+p{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
+h1, h3, h4, h5, p, span{
+  margin: 0;
+  text-align: left;
+}
+h1, h3, h4, h5, h6, .time, button, a, select{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+a:focus, input, button, select, option{
+  outline: none;
+  border: none;
+  background: none;
+}
+button{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.warn{
+  color: red;
+}
+form{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 10px;
+  margin: 5px;
+  -ms-align-items: center;
+  align-items: center;
+}
+form input{
+  border: 2px solid #D6D6D6;
+  border-radius: 7px;
+  font-size: 1.2rem;
+  margin-bottom: 7px;
+  padding: 5px;
+}
+form button{
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: blue;
+  padding: 5px 15px;
+  border-radius: 7px;
+}
+p button{
+  text-decoration: underline;
+}

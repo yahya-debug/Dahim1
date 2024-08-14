@@ -35,6 +35,10 @@ self.addEventListener('activate', function (event) {
 })
 
 self.addEventListener('fetch', function (event) {
+  // console.log(event);
+  if (event.request.method == 'POST') {
+    return 0;
+  }
   event.respondWith(fetch(event.request).then(function (res) {
     if (cacheA.includes(event.request.url.replace('http://localhost:1400', ''))) {
       return res;

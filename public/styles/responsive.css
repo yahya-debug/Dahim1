@@ -1,4 +1,7 @@
 @media only screen and (max-width: 1290px) {
+  .cpost, .home .post{
+    width: 60%;
+  }
   .acc_shc{
     width: 25%;
   }
@@ -39,9 +42,14 @@
     width: 80px;
     height: 31.1px;
   }
+  header nav{
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+  }
   header nav button{
-    width: 30px;
-    height: 30px;
+    width: 30px!important;
+    height: 30px!important;
   }
   header nav button svg, header nav button a{
     width: 20px;
@@ -90,6 +98,9 @@
   .profile .Followers{
     width: 510px;
   }
+  .body.notifications .notification, .body.notifications .filter{
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 530px) {
   .cpost, .post, .home .postsec .stories, .ProfInf, .ProfInf .profpic, .Followers{
@@ -106,7 +117,7 @@
     width: 100%;
     justify-content: center;
     z-index: 5;
-    padding: 5px;
+    padding: 10px;
   }
   .h_nav .sopen{
     position: unset;

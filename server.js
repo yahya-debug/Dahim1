@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const app = express();
+
 require('dotenv').config();
 
 mongoose.connect(`${process.env.MONGO_PASS}`).then(function () {
@@ -15,17 +16,17 @@ mongoose.connect(`${process.env.MONGO_PASS}`).then(function () {
 })
 
 app.use(express.static(path.join(__dirname, '/public')));
+app.use(bodyparser.json({limit: '5gb', extended: true}))
+app.use('/', require('./User'));
 app.use('/:path/:path', express.static(path.join(__dirname, '/public')));
 
-app.get('/', function (req, res) {
+app.get(['/Profile', '/myProfile', '/Chat', '/Notifications', '/'], function (req, res) {
   res.sendFile(path.join(__dirname, '/public/app.html'));
 })
-app.get('/myProfile', function (req, res) {
-  res.sendFile(path.join(__dirname, '/public/app.html'));
+app.get(['/Login', '/Signup'], function (req, res) {
+  res.sendFile(path.join(__dirname, '/public/Authenticate.html'));
 })
-app.get('/Chat', function (req, res) {
-  res.sendFile(path.join(__dirname, '/public/app.html'));
-})
+
 
 const PORT = process.env.PORT || 1400;
 app.listen(PORT, () => console.log(`Server started on ${PORT}`));

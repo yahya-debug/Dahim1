@@ -28,7 +28,7 @@ h1, h3, h4, h5, p, span{
   font-family: 'Roboto', sans-serif;
   text-align: left;
 }
-h1, h3, h4, h5, h6, .time, button, a{
+h1, h3, h4, h5, h6, .time, button, a, select{
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -54,7 +54,7 @@ img{
   color: #454545a8;
   text-align: center;
 }
-button:focus, a:focus, textarea:focus, input:focus, input, button{
+button:focus, a:focus, textarea:focus, input:focus, input, button, select, option{
   outline: none;
   border: none;
   background: none;
@@ -169,6 +169,11 @@ a h1{
   -ms-flex-direction: column;
   flex-direction: column;
 }
+.h_nav nav.sopen .searchBox .srchinp{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
 header .h_nav nav input[name="search"]{
   width: 100%;
   font-size: 18px;
@@ -208,6 +213,17 @@ header .h_nav nav .srchRes p{
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+.body.notifications{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-align-items: center;
+  align-items: center;
+  padding: 5px 7px;
 }
 .navigation, .postsec{
   padding: 10px;
@@ -340,7 +356,7 @@ header .h_nav nav .srchRes p{
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  width: 510px;
+  width: 55%;
   border: 2.5px solid #D6D6D6;
 }
 textarea[name="post"]{
@@ -772,4 +788,55 @@ footer.cmessage textarea{
 .msg_n{
   margin: 12.5px 0;
   color: #454545a8;
+}
+
+
+/* notification page */
+.body.notifications .filter{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-column-gap: 10px;
+  -moz-column-gap: 10px;
+  column-gap: 10px;
+  padding: 5px;
+  width: 660px;
+  background-color: #D6D6D6;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.body.notifications .filter button, select{
+  width: 33.33%;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.body.notifications .notification{
+  width: 660px;
+  background-color: #D6D6D6;
+  border-radius: 10px;
+}
+.body.notifications .notification button{
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: flex-start;
+  padding: 7px;
+  align-items: stretch;
+  -webkit-column-gap: 10px;
+  -moz-column-gap: 10px;
+  column-gap: 10px;
+}
+.body.notifications .notification button .info{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
 }
