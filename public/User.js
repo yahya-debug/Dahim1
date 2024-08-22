@@ -14,7 +14,9 @@ class User {
       return data.json();
     })
   }
-  get() {
-    
+  get(options = null) {
+    return fetch(`/get_user?tok=${this.user.tok}&dev=${this.user.dev}&opt=${options}`).then(function (data) {
+      return data.json();
+    })
   }
 }

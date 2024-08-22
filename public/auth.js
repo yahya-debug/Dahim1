@@ -73,7 +73,17 @@ function Login(event) {
         event.target.insertBefore(msg, event.target.children[0]);
         return 0;
       }
-      localStorage.setItem('UI', res.tok)
+      if (localStorage.getItem('UI')) {
+        if (localStorage.getItem('UI').indexOf(res.token) !== 0) {
+          location.replace('/')
+          return 0;
+        }
+        var nui = `${res.tok}DAHIM${localStorage.getItem('UI')}`;
+        localStorage.setItem('UI', nui);
+        localStorage.setItem('CU', res.tok);
+      } else {
+        localStorage.setItem('UI', res.tok);
+      }
       location.replace('/');
     });
   }

@@ -20,7 +20,7 @@ router.post('/Signup', function (req, res) {
       id: uuidv4(),
       name: name,
       email: email,
-      birth: birth,
+      Birth: birth,
       url: `Profile/${new ID(20).Gen()}`,
       devices: [dev],
     }
@@ -52,30 +52,29 @@ router.post('/Login', function (req, res) {
           return res.send({ msg: 'Wrong password!', });
         }
         if (result && !res.headersSent) {
-          res.send({ tok: users[u].token, })
-          console.log(users[u].devices.includes(dev));
           if (!users[u].devices.includes(dev)) {
-            User.findOneAndUpdate({ id: users[u].id }, { $addToSet: { devices: dev, }, }, function () {})
+            User.findOneAndUpdate({ id: users[u].id }, { $push: { devices: dev, } }).then(function () {})
           }
+          res.send({ tok: users[u].token, })
         }
       })
     }
   })
 })
-router.post('/get_user', function (req, res) {
-  const { tok, dev } = req.headers;
-  User.findOne({ token: tok, devices: dev }).then(function (result) {
-    console.log(result);
+router.get('/get_user', function (req, res) {
+  const { tok, dev } = req.query;
+  var selected = 'id name image settings bio url -_id';
+  if (JSON.parse(req.query.opt) && JSON.parse(req.query.opt).retoken) {
+    selected = 'name image token -_id'
+  }
+  User.findOne({ token: tok, devices: dev }).select(selected).then(function (result) {
     if (!result) {
       return res.send({ msg: 'err' })
     }
-    const send = {
-      id: result.id,
-      name: result.name,
-      url: result.url,
-      image: result.image,
-    }
-    res.send(send)
+    res.send(result)
   })
+})
+router.get('/settings/:command', function (req, res) {
+  User.findOneAndUpdate({ id: req.query.user, }, { settings: { theme: req.query.theme, }, }).then(function () {})
 })
 module.exports = router;

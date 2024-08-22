@@ -1,12 +1,31 @@
 :root{
-  --title-text: white;
   --header-h: 67px;
 }
 [data-theme="light"]{
-
+  --svg: black;
+  --D6: #D6D6D6;
+  --BC: white;
+  --T: black;
+  --title-text: white;
+  --SC: #454545a8;
+  --post: #f8f9f9;
+  --d6-90: #D6D6D6;
+  --D6-60: #D6D6D6;
+  --ac-5d: #acacac;
+  --e0-30: #e0e0e0;
 }
 [data-theme="dark"]{
-
+  --svg: white;
+  --D6: #353535;
+  --BC: black;
+  --T: white;
+  --title-text: #5D5D5D;
+  --SC: #aaaaaaa8;
+  --post: #353535;
+  --d6-90: #909090;
+  --D6-60: #606060;
+  --ac-5d: #5D5D5D;
+  --e0-30: #303030;
 }
 input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
 input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
@@ -22,22 +41,31 @@ body{
   height: 100vh;
   margin: 0;
   overflow: hidden;
+  background-color: var(--BC)
+}
+hr{
+  margin: 2px 0;
 }
 h1, h3, h4, h5, p, span{
   margin: 0;
   font-family: 'Roboto', sans-serif;
   text-align: left;
+  color: var(--T);
 }
 h1, h3, h4, h5, h6, .time, button, a, select{
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  color: var(--T);
 }
 h6{
   font-weight: normal;
   margin: 0;
   text-align: left;
+}
+svg path:not(.nochats svg path):not(h1 svg path):not(button[name="Edit"] svg g path){
+  fill: var(--svg);
 }
 img{
   width: inherit;
@@ -51,7 +79,7 @@ img{
   border-radius: 50%;
 }
 .greet{
-  color: #454545a8;
+  color: var(--SC);
   text-align: center;
 }
 button:focus, a:focus, textarea:focus, input:focus, input, button, select, option{
@@ -71,7 +99,8 @@ textarea{
   border: none;
   background: none;
   resize: none;
-  font-size: 18px;
+  font-size: 1.125rem;
+  color: var(--T);
 }
 a{
   text-decoration: none;
@@ -82,6 +111,139 @@ a{
 }
 button{
   cursor: pointer;
+}
+.front{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000A8;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  z-index: 3;
+}
+.frontdiv{
+  background-color: var(--e0-30);
+  padding: 10px;
+  border-radius: 20px;
+  width: 430px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  z-index: 4;
+}
+.settings_par{
+  display: none;
+}
+.frontdiv > h3{
+  letter-spacing: 1px;
+  font-size: 23px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-column-gap: 7px;
+  -moz-column-gap: 7px;
+  column-gap: 7px;
+  margin-bottom: 10px;
+}
+.switchacc button{
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-column-gap: 10px;
+  -moz-column-gap: 10px;
+  column-gap: 10px;
+  justify-content: flex-start;
+  height: 75px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0;
+  background-color: var(--BC);
+  margin-bottom: 7px;
+}
+.switchacc button img{
+  width: 75px;
+  height: 75px;
+}
+.switchacc .addacc{
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+}
+.switchacc .addacc a{
+  width: 200px;
+  border-radius: 15px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-column-gap: 10px;
+  -moz-column-gap: 10px;
+  column-gap: 10px;
+  background-color: var(--BC);
+  color: var(--T);
+}
+.switchacc .addacc a span{
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  background-color: var(--ac-5d)
+}
+.back{
+  display: none;
+  cursor: pointer;
+}
+.settings_par .settings button{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px;
+  font-size: 1.125rem;
+  color: var(--T);
+}
+.toggleBtn{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  width: 48px;
+  height: 25px;
+  background-color: var(--title-text);
+  border-radius: 30px;
+  padding: 3px;
+  transition: .5s ease justify-content;
+}
+.fe{
+  justify-content: flex-end;
+}
+.toggle{
+  width: 20px;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--T);
 }
 header{
   display: -webkit-flex;
@@ -140,7 +302,7 @@ a h1{
   display: flex;
   -ms-align-items: center;
   align-items: center;
-  background-color: #D6D6D6;
+  background-color: var(--D6);
   -webkit-column-gap: 15px;
   -moz-column-gap: 15px;
   column-gap: 15px;
@@ -160,7 +322,7 @@ a h1{
   top: 0;
   left: 0;
   width: 220px;
-  background-color: #D6D6D6;
+  background-color: var(--D6);
   border-radius: 12px;
   display: -webkit-flex;
   display: -ms-flex;
@@ -176,7 +338,7 @@ a h1{
 }
 header .h_nav nav input[name="search"]{
   width: 100%;
-  font-size: 18px;
+  font-size: 1.125rem;
   padding: 5px;
   padding-left: 7.5px;
 }
@@ -232,7 +394,7 @@ header .h_nav nav .srchRes p{
 /* navigation */
 .navigation nav{
   padding: 7.5px;
-  background-color: #D6D6D6;
+  background-color: var(--D6);
   width: 300px;
   border-radius: 12.5px;
   height: 100%;
@@ -242,9 +404,14 @@ header .h_nav nav .srchRes p{
   text-align: center;
   padding: 7px 5px;
   background-color: var(--title-text);
+  color: var(--T);
   border-radius: 12.5px;
   margin-bottom: 7px;
   width: 100%;
+  letter-spacing: 1.5px;
+}
+h3[data-direction]{
+  cursor: pointer;
 }
 .navigation nav > div{
   margin-bottom: 7px;
@@ -343,7 +510,7 @@ header .h_nav nav .srchRes p{
 }
 .postsec::-webkit-scrollbar-thumb{
   border-radius: 10px;
-  background-color: #D6D6D6;
+  background-color: var(--D6);
 }
 /* create post */
 .cpost{
@@ -357,7 +524,7 @@ header .h_nav nav .srchRes p{
   -ms-flex-direction: column;
   flex-direction: column;
   width: 55%;
-  border: 2.5px solid #D6D6D6;
+  border: 2.5px solid var(--D6);
 }
 textarea[name="post"]{
   height: 124px;
@@ -392,7 +559,7 @@ textarea[name="post"]{
   justify-content: center;
   border-radius: 50%;
   cursor: pointer;
-  background-color: #D6D6D6;
+  background-color: var(--D6-60);
 }
 .cpost .p_edits button[name="post"]{
   border-radius: 5px;
@@ -426,14 +593,15 @@ textarea[name="post"]{
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
+  position: relative;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-color: #f8f8f8;
+  background-color: var(--post);
   border-radius: 10px;
   margin-top: 7px;
   padding: 7px;
-  width: 510px;
+  width: 55%;
   box-shadow: 1px 1px 3px 0px #454545;
 }
 .post .postinfo{
@@ -464,13 +632,28 @@ textarea[name="post"]{
   padding: 5px;
   margin: 5px 0;
 }
+.post .postsets{
+  position: absolute;
+  background-color: var(--d6-90);
+  right: 15px;
+  border-radius: 5px;
+  width: 120px;
+}
+.post .postsets h5{
+  margin: 5px 5px 0;
+}
+.post .postsets button{
+  width: 100%;
+  justify-content: flex-start;
+  padding: 3px;
+}
 .post .activity{
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
   -ms-align-items: center;
   align-items: center;
-  border-top: .5px solid #D6D6D6;
+  border-top: .5px solid var(--d6-90);
   padding-top: 5px;
 }
 .post .activity button{
@@ -483,9 +666,10 @@ textarea[name="post"]{
   justify-content: center;
   text-align: center;
   cursor: pointer;
+  color: var(--T);
 }
 .post .activity button:hover{
-  background-color: #D6D6D6
+  background-color: var(--D6)
 }
 /* account shortcut */
 .acc_shc{
@@ -502,7 +686,7 @@ textarea[name="post"]{
   right: 30px;
   top: 20px;
   padding: 10px;
-  background-color: #D6D6D6;
+  background-color: var(--D6);
   border-radius: 12px;
   width: 30%;
 }
@@ -553,7 +737,7 @@ textarea[name="post"]{
   column-gap: 5px;
   padding: 5px;
   width: calc(100% - 6px);
-  background-color: #D6D6D6;
+  background-color: var(--D6);
 }
 .chatList .m_search input{
   width: calc(100% - 17px);
@@ -660,7 +844,6 @@ footer.cmessage textarea{
 .ProfInf{
   width: 50%;
   min-width: 460px;
-  min-height: 300px;
   height: fit-content;
   padding: 5px;
   display: -webkit-flex;
@@ -671,9 +854,11 @@ footer.cmessage textarea{
   flex-direction: column;
   -ms-align-items: center;
   align-items: center;
-  justify-content: space-between;
-  background-color: #D6D6D6;
+  background-color: var(--D6);
   border-radius: 10px;
+}
+.ProfInf > *:not(:last-child){
+  margin-bottom: 5px;
 }
 .ProfInf .profpic{
   display: -webkit-flex;
@@ -698,11 +883,13 @@ footer.cmessage textarea{
 .ProfInf .n_b h3{
   text-align: center;
   padding: 5px;
+  color: var(--T);
 }
 .ProfInf p.bio{
   margin-top: 7px;
   width: 100%;
   padding: 7px;
+  color: var(--T);
 }
 .ProfInf .buttons{
   width: 100%;
@@ -724,18 +911,19 @@ footer.cmessage textarea{
   -webkit-column-gap: 5px;
   -moz-column-gap: 5px;
   column-gap: 5px;
-  font-size: 18px;
+  font-size: 1.125rem;
   background-color: blue;
   -ms-align-items: center;
   align-items: center;
+  color: var(--T);
 }
 .ProfInf button:first-child{
-  background-color: #acacac;
+  background-color: var(--ac-5d);
   border-radius: 50%;
   padding: 7px;
 }
 .Followers{
-  background-color: #D6D6D6;
+  background-color: var(--D6);
   border-radius: 10px;
   height: fit-content;
   max-height: 300px;
@@ -744,13 +932,14 @@ footer.cmessage textarea{
   min-width: 300px;
 }
 .Followers h3{
-  background-color: #fff;
+  background-color: var(--title-text);
+  color: var(--T);
   padding: 5px;
   border-radius: 5px;
   margin-bottom: 10px;
 }
 .Followers .follist{
-  background-color: #fff;
+  background-color: var(--title-text);
   padding: 5px;
   border-radius: 5px;
   display: -webkit-flex;
@@ -784,10 +973,11 @@ footer.cmessage textarea{
 }
 .postsinprof .post{
   margin: 0 0 7px;
+  width: 50%;
 }
 .msg_n{
   margin: 12.5px 0;
-  color: #454545a8;
+  color: var(--SC);
 }
 
 
@@ -803,19 +993,20 @@ footer.cmessage textarea{
   column-gap: 10px;
   padding: 5px;
   width: 660px;
-  background-color: #D6D6D6;
+  background-color: var(--D6);
   border-radius: 10px;
   margin-bottom: 10px;
 }
 .body.notifications .filter button, select{
   width: 33.33%;
   padding: 5px;
-  background-color: #fff;
+  background-color: var(--BC);
+  color: var(--T);
   border-radius: 5px;
 }
 .body.notifications .notification{
   width: 660px;
-  background-color: #D6D6D6;
+  background-color: var(--D6);
   border-radius: 10px;
 }
 .body.notifications .notification button{
@@ -839,4 +1030,12 @@ footer.cmessage textarea{
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
+}
+.dn{
+  display: none;
+}
+.df{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
 }

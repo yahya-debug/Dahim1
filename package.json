@@ -2,10 +2,11 @@
   "name": "dahim_1.0",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "Desktop.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "electron": "electron ."
   },
   "keywords": [],
   "author": "",
@@ -15,10 +16,12 @@
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
     "electron": "^31.3.1",
+    "electron-reload": "^2.0.0-alpha.1",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.2",
     "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5",
     "uuid": "^10.0.0"
   },
   "devDependencies": {

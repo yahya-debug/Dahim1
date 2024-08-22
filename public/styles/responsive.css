@@ -39,8 +39,8 @@
     height: 31.1px;
   }
   header h1 svg{
-    width: 80px;
-    height: 31.1px;
+    width: 95px;
+    height: 36.1px;
   }
   header nav{
     -webkit-column-gap: 10px;
@@ -116,7 +116,7 @@
     left: 0;
     width: 100%;
     justify-content: center;
-    z-index: 5;
+    z-index: 1;
     padding: 10px;
   }
   .h_nav .sopen{
@@ -128,5 +128,17 @@
     height: 100%!important;
     border-radius: 0!important;
     padding: 10px!important;
+  }
+  .frontdiv{
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+    z-index: 10;
+  }
+  .frontdiv .back{
+    display: block;
+  }
+  .frontdiv h3{
+    margin-bottom: 15px;
   }
 }

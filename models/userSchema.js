@@ -8,11 +8,14 @@ const user = mongoose.Schema({
   Birth: Date,
   url: String,
   token: String,
-  bio: String,
+  bio: {
+    type: String,
+    default: '',
+  },
   phone: [String],
   image: {
     type: String,
-    default: './noImagde_user.jpg'
+    default: '/noImagde_user.jpg'
   },
   search: [String],
   followers: [String],
@@ -21,7 +24,10 @@ const user = mongoose.Schema({
   chats: [String],
   devices: [String],
   settings: {
-    theme: String,
+    theme: {
+      type: String,
+      default: 'light',
+    },
   },
 });
 const User = mongoose.model('Users', user);
@@ -30,6 +36,12 @@ class User_ {
   constructor(id) {
     this.id = id;
   }
+  static getInfo(data, callBack) {
+    User.findOne({ id: data.author, }).select('id name image url -_id').then(function (res) {
+      data.author = JSON.stringify(res);
+      callBack(data)
+    })
+  }
 }
 
-module.exports = { User };
+module.exports = { User, User_ };

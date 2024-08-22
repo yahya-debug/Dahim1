@@ -7,8 +7,11 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="/styles/app.css">
     <link rel="stylesheet" href="/styles/responsive.css">
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO" crossorigin="anonymous"></script>
     <script src="./sw.js" charset="utf-8"></script>
     <script src="./User.js" charset="utf-8"></script>
+    <script src="./Post.js" charset="utf-8"></script>
+    <script src="./Functions.js" charset="utf-8"></script>
     <script src="./open.js" charset="utf-8"></script>
     <title>Dahim</title>
   </head>
@@ -85,7 +88,26 @@
     <section class="body">
 
     </section>
+    <div class="settings_par front">
+      <div class="settings frontdiv">
+        <h3>
+          <svg class="back" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM15 13H11.4L12.7 14.3C13.1 14.7 13.1 15.3 12.7 15.7C12.3 16.1 11.7 16.1 11.3 15.7L8.3 12.7C7.9 12.3 7.9 11.7 8.3 11.3L11.3 8.3C11.7 7.9 12.3 7.9 12.7 8.3C13.1 8.7 13.1 9.3 12.7 9.7L11.4 11H15C15.6 11 16 11.4 16 12C16 12.6 15.6 13 15 13Z" fill="black"/>
+          </svg>
+          Settings
+        </h3>
+        <button type="button" name="Dark mode">
+          Dark Theme
+          <div class="toggleBtn">
+            <span class="toggle"></span>
+          </div>
+        </button>
+        <button type="button" name="Switch accounts">Switch Account</button>
+        <button type="button" name="settings button">Log out</button>
+      </div>
+    </div>
     <script src="./styles/styles.js" charset="utf-8"></script>
     <script src="./app.js" charset="utf-8"></script>
+    <script src="./sockets.js" charset="utf-8"></script>
   </body>
 </html>

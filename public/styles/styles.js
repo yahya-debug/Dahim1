@@ -1,6 +1,7 @@
 window.addEventListener('load', responsive);
 window.addEventListener('resize', responsive);
 
+
 function stylesChange(appearance) {
   var root = document.querySelector(':root');
   var hh = document.querySelector('header').offsetHeight;
@@ -16,7 +17,6 @@ function responsive() {
       var f = body.querySelector('.Followers');
       if (!pb.querySelector('.Followers')) {
         pb.insertBefore(f, pb.children[0])
-        console.log('"obj"');
       }
     }
   } else {
@@ -25,7 +25,6 @@ function responsive() {
       var f = body.querySelector('.Followers');
       if (!ph.querySelector('.Followers')) {
         ph.appendChild(f)
-        console.log('obj');
       }
     }
   }
