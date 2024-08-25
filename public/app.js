@@ -204,7 +204,7 @@ function openHome() {
           <div>
             <div class="story">
               <a href="/story/1" class="innerLink">
-                <img src="./sources/noImagde_user.jpg">
+                <img src="./noImagde_user.jpg">
               </a>
             </div>
           </div>
@@ -246,7 +246,7 @@ function openHome() {
     <!-- posts -->
   </div>
   <div class="acc_shc">
-  <img src="./sources/noImagde_user.jpg"/>
+  <img src="./noImagde_user.jpg"/>
   <div class="bio">
   <h3>${UserInf.name}</h3>
   <p>${UserInf.bio || ''}</p>
@@ -339,7 +339,7 @@ function openProf(profile) {
   body.innerHTML = `<div class="profhead">
     <div class="ProfInf">
       <div class="profpic">
-        <img src="./sources/noImagde_user.jpg" alt="">
+        <img src="./noImagde_user.jpg" alt="">
       </div>
       <div class="n_b">
         <h3>${UserInf.name}</h3>
@@ -389,7 +389,7 @@ function openNoti() {
   </div>
   <a href="/" class="notification">
     <button type="button">
-      <img src="./sources/noImagde_user.jpg" class="simg">
+      <img src="./noImagde_user.jpg" class="simg">
       <div class="info">
         <h4>yahya started following you</h4>
         <i class="time">1h ago</i>

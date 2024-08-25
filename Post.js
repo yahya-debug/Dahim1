@@ -39,7 +39,7 @@ router.post('/posts/new', function (req, res) {
   let srcs = Object.values(images);
   for (var i = 0; i < Object.keys(images).length; i++) {
     srcs[i] = srcs[i].replace(`data:image/jpeg;base64`, '');
-    fs.writeFileSync(path.join(__dirname, `/public/sources/${Object.keys(images)[i]}.jpg`), Buffer.from(srcs[i], 'base64'))
+    fs.writeFileSync(path.join(__dirname, `/public/${Object.keys(images)[i]}.jpg`), Buffer.from(srcs[i], 'base64'))
   }
   let toDB = req.body;
   toDB.images = Object.keys(images);
