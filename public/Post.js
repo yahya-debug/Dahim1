@@ -62,7 +62,7 @@ class Post {
       post.setAttribute('data-a', (posts[i].author.id || posts[i].id));
       post.innerHTML = `<div class="postinfo">
         <div class="author">
-          <img src="./sources${posts[i].author.image}" alt="" class="simg">
+          <img src="${posts[i].author.image}" alt="" class="simg">
           <div>
             <a href="${posts[i].author.url}"><h5>${posts[i].author.name}</h5></a>
             <i class="time">1h ago</i>
