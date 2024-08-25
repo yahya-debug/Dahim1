@@ -31,7 +31,7 @@ app.get(['/Login', '/Signup'], function (req, res) {
   res.sendFile(path.join(__dirname, '/public/Authenticate.html'));
 });
 app.get('/image/:img', function (req, res) {
-  res.sendFile(path.join(__dirname, `/public/sources/${req.params.img}.jpg`));
+  res.sendFile(path.join(__dirname, `/public/${req.params.img}.jpg`));
 })
 
 io.on('connection', (socket) => {
