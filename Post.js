@@ -43,7 +43,6 @@ router.post('/posts/new', function (req, res) {
   }
   let toDB = req.body;
   toDB.images = Object.keys(images);
-  console.log(toDB);
   new Post(toDB).save().then(function () {});
 })
 router.delete('/posts/:post', function (req, res) {
