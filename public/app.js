@@ -285,7 +285,7 @@ function openHome() {
   run();
   responsive();
 }
-function openProf(profile) {
+function openProf(profile = UserInf) {
   if (profon) {
     return;
   }
