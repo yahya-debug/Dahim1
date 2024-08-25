@@ -3,7 +3,7 @@ class Chat {
     this.id = id;
   }
   get() {
-    fetch(`/allchats/${user.id}`).then(function (data) {
+    fetch(`/allchats/${user.id}`).limit(50).then(function (data) {
       return data.json();
     }).then(function (res) {
       console.log(res);

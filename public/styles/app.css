@@ -95,6 +95,12 @@ button{
   align-items: center;
   justify-content: center;
 }
+input{
+  color: var(--T);
+}
+input[type="file"]::-webkit-file-upload-button{
+  cursor: pointer;
+}
 textarea{
   border: none;
   background: none;
@@ -375,6 +381,15 @@ header .h_nav nav .srchRes p{
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  overflow-y: auto;
+}
+.body.profile::-webkit-scrollbar{
+  -webkit-appearance: none;
+  width: 10px;
+}
+.body.profile::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  background-color: var(--D6);
 }
 .body.notifications{
   display: -webkit-flex;
@@ -502,7 +517,7 @@ h3[data-direction]{
 
 .postsec{
   width: 100%;
-  overflow: auto;
+  overflow: hidden auto;
 }
 .postsec::-webkit-scrollbar{
   -webkit-appearance: none;
@@ -549,6 +564,14 @@ textarea[name="post"]{
   -moz-column-gap: 7px;
   column-gap: 7px;
 }
+.cpost .p_edits button input{
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  cursor: pointer;
+}
 .cpost .p_edits button:not([name="post"]){
   padding: 5px;
   display: -webkit-flex;
@@ -560,6 +583,7 @@ textarea[name="post"]{
   border-radius: 50%;
   cursor: pointer;
   background-color: var(--D6-60);
+  overflow: hidden;
 }
 .cpost .p_edits button[name="post"]{
   border-radius: 5px;
@@ -646,6 +670,13 @@ textarea[name="post"]{
   width: 100%;
   justify-content: flex-start;
   padding: 3px;
+}
+.post .post_div_img{
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-wrap: wrap;
 }
 .post .activity{
   display: -webkit-flex;

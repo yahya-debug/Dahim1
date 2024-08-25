@@ -43,9 +43,18 @@ class Post {
     })
   }
   static create(posts, area) {
+    console.log(posts);
     for (var i = 0; i < posts.length; i++) {
       if (typeof posts[i].author == 'string') {
         posts[i].author = JSON.parse(posts[i].author);
+      }
+      var imgs = posts[i].images;
+      var imgsdiv = document.createElement('div');
+      imgsdiv.classList.add('post_div_img');
+      for (var j = 0; j < imgs.length; j++) {
+        var img = document.createElement('img');
+        img.setAttribute('src', `/image/${imgs[i]}`);
+        imgsdiv.appendChild(img);
       }
       var post = document.createElement('div');
       post.classList.add('post');
@@ -96,6 +105,7 @@ class Post {
           Share
         </button>
       </div>`;
+      post.insertBefore(imgsdiv, post.querySelector('.activity'))
       area.appendChild(post)
       var pso = false;
       post.querySelector('button[name="post settings"]').addEventListener('click', opensets)

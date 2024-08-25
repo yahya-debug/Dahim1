@@ -3,4 +3,7 @@ socket.on('post', function (data) {
     Post.create([data], document.querySelector('.postsec'))
   }
   postsincache.push(data);
+  if (data.author == UserInf.id) {
+    profposts.push(data)
+  }
 })
