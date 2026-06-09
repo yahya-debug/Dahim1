@@ -2,3 +2,4 @@ node_modules
 .git
 public/sources
 public/app1.html
+.env
